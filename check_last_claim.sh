@@ -7,10 +7,10 @@
 #
 ################################################################################
 DIR=/opt
-PRODUCER=eos42freedom
+PRODUCER=teloskitchen
 DAY=86400
 
-producer_state=$($DIR/./cleos.sh get table eosio eosio producers -l 1 -k owner -L eos42freedom)
+producer_state=$(cleos get table eosio eosio producers -l 1 -k owner -L teloskitchen)
 LAST_CLAIM=$(echo $producer_state | jq -r '.rows[0].last_claim_time')
 
 # Calculate diff

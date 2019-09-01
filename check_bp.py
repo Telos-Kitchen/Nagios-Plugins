@@ -11,7 +11,7 @@ URLS = {
     'get_info': 'http://{host}/v1/chain/get_info'
 }
 
-HOSTS = ['testnet.telos.caleos.io','testnet.telos.eosdetroit.io','testnet.eos.miami','testnet-api.telosuk.io','api-test.tlos.goodblock.io','149.28.231.187:8888','testnet.theteloscope.io:18888']
+HOSTS = ['telos.atticlab.net:8888','149.28.254.141:8888','telos.caleos.io','telos.eosdetroit.io','telos.eosphere.io','api.tlos.goodblock.io','api-telos.infinitybloc.io']
 
 HEAD_BLOCK_INTS = [
 

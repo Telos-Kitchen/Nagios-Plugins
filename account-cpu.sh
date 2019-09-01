@@ -5,7 +5,7 @@ CLEOS=cleos
 #Set max CPU average to compare against
 MAX=30
 
-echo -n >CPUSTATS
+echo -n >~/CPUSTATS
 
 
 end=$((SECONDS+60))
@@ -16,12 +16,12 @@ while [ $SECONDS -lt $end ]; do   # Loop until interval has elapsed.
         CPUR="(($CPUU/$CPUA)*100)"
         CPURA=$(echo "scale=4; ${CPUR}" | bc | cut -d'.' -f 1 | sed 's/ //g')
         # Append each line to CPUSTATS file
-        echo $CPURA>>CPUSTATS
+        echo $CPURA>>~/CPUSTATS
 
 done
 
 #Compute the average
-AVG=$(awk '{s+=$1} END {print s/NR}' CPUSTATS)
+AVG=$(awk '{s+=$1} END {print s/NR}' ~/CPUSTATS)
 
 
 if (( $(echo "$AVG > $MAX" |bc -l) )); then

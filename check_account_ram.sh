@@ -1,6 +1,6 @@
 #!/bin/bash
 DIR=/opt
-CLEOS=$DIR/cleos.sh
+CLEOS=cleos
 
 MAX=80
 
