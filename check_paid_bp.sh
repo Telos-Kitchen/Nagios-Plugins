@@ -9,7 +9,8 @@ if [ $BP -gt 0 ];
 	then
 		OLD=$(<$FILEEOS42)
 		echo "Old unpaid_blocks: $OLD"
-		UNPAID="$(/bin/bash $CLEOS get table eosio eosio producers -l 150 | /bin/grep -A 6 "teloskitchen" | /bin/grep unpaid_blocks | /bin/grep -oP '(?<= )[0-9]+')"
+		UNPAID="$(/bin/bash $CLEOS get table eosio eosio producers -l 150 | /bin/grep -A 6 "teloskitchen" | /bin/grep total_votes | /bin/grep -oP '(?<= )[0-9]+')"
+		echo UNPAID
 		echo $UNPAID > $FILEEOS42
 
 		if [[ $UNPAID -eq $OLD ]];

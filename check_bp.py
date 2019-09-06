@@ -11,7 +11,7 @@ URLS = {
     'get_info': 'http://{host}/v1/chain/get_info'
 }
 
-HOSTS = ['telos.atticlab.net:8888','149.28.254.141:8888','telos.caleos.io','telos.eosdetroit.io','telos.eosphere.io','api.tlos.goodblock.io','api-telos.infinitybloc.io']
+HOSTS = ['telos.caleos.io','telos.eosdetroit.io','telos.eosphere.io','api-telos.infinitybloc.io']
 
 HEAD_BLOCK_INTS = [
 
@@ -22,7 +22,9 @@ def read_head_block_ints():
     for host in HOSTS:
         try:
             data = requests.get(URLS['get_info'].format(host=host), verify=False).json()  # returns data in JSON format
+            new_head_block = data['head_block_num']
             HEAD_BLOCK_INTS.append(float(data['head_block_num']))   # this is the head_block INT
+            print('Retrieved info; head_block_num for {host} is {block}'.format(host=host, block=new_head_block))
         except:
             print('Error cannot connect to host {host}'.format(host=host))
 
